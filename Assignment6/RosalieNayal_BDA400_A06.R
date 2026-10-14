@@ -66,18 +66,16 @@ server <- function(input, output) {
 
     # Apply the selected time frame
     if (input$time_frame == "Weekly") {
-      filtered_data <- to.weekly(
+      filtered_data <- to.period(
         filtered_data,
-        indexAt = "lastof",
-        drop.time = TRUE
+        period = "weeks"
       )
     }
-
+    
     if (input$time_frame == "Monthly") {
-      filtered_data <- to.monthly(
+      filtered_data <- to.period(
         filtered_data,
-        indexAt = "lastof",
-        drop.time = TRUE
+        period = "months"
       )
     }
 
